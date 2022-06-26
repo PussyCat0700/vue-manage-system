@@ -5,16 +5,11 @@
                 <el-breadcrumb-item>
                     <i class="el-icon-lx-calendar"></i> 表单
                 </el-breadcrumb-item>
-                <el-breadcrumb-item>图片上传</el-breadcrumb-item>
+                <el-breadcrumb-item>资格文件上传</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container">
-            <div class="content-title">支持拖拽</div>
-            <div class="plugins-tips">
-                Element UI自带上传组件。
-                访问地址：
-                <a href="http://element.eleme.io/#/zh-CN/component/upload" target="_blank">Element UI Upload</a>
-            </div>
+            <div class="content-title">资格文件上传</div>
             <el-upload class="upload-demo" drag action="http://jsonplaceholder.typicode.com/api/posts/" multiple>
                 <i class="el-icon-upload"></i>
                 <div class="el-upload__text">
@@ -22,16 +17,9 @@
                     <em>点击上传</em>
                 </div>
                 <template #tip>
-                    <div class="el-upload__tip">只能上传 jpg/png 文件，且不超过 500kb</div>
+                    <div class="el-upload__tip">可上传 jpg/png 文件或pdf文件</div>
                 </template>
             </el-upload>
-
-            <div class="content-title">支持裁剪</div>
-            <div class="plugins-tips">
-                vue-cropperjs：一个封装了 cropperjs 的 Vue 组件。
-                访问地址：
-                <a href="https://github.com/Agontuk/vue-cropperjs" target="_blank">vue-cropperjs</a>
-            </div>
         </div>
     </div>
 </template>

@@ -46,12 +46,12 @@ export default {
             {
                 icon: "el-icon-lx-cascades",
                 index: "/table",
-                title: "基础表格",
+                title: "审核干部资格",
             },
             {
                 icon: "el-icon-lx-copy",
                 index: "/tabs",
-                title: "tab选项卡",
+                title: "系统通知",
             },
             {
                 icon: "el-icon-lx-calendar",
@@ -60,58 +60,23 @@ export default {
                 subs: [
                     {
                         index: "/form",
-                        title: "基本表单",
+                        title: "新建乡村表单",
                     },
                     {
                         index: "/upload",
-                        title: "文件上传",
+                        title: "资格文件上传",
                     },
                     {
                         index: "4",
-                        title: "三级菜单",
+                        title: "公告",
                         subs: [
                             {
                                 index: "/editor",
-                                title: "富文本编辑器",
+                                title: "发布公告",
                             },
                         ],
                     },
                 ],
-            },
-            {
-                icon: "el-icon-lx-emoji",
-                index: "/icon",
-                title: "自定义图标",
-            },
-            {
-                icon: "el-icon-pie-chart",
-                index: "/charts",
-                title: "schart图表",
-            },
-            {
-                icon: "el-icon-lx-global",
-                index: "/i18n",
-                title: "国际化功能",
-            },
-            {
-                icon: "el-icon-lx-warn",
-                index: "7",
-                title: "错误处理",
-                subs: [
-                    {
-                        index: "/permission",
-                        title: "权限测试",
-                    },
-                    {
-                        index: "/404",
-                        title: "404页面",
-                    },
-                ],
-            },
-            {
-                icon: "el-icon-lx-redpacket_fill",
-                index: "/donate",
-                title: "支持作者",
             },
         ];
 

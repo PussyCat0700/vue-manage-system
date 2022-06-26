@@ -12,24 +12,25 @@
                     </div>
                     <div class="user-info-list">
                         上次登录时间：
-                        <span>2019-11-01</span>
+                        <span>2022-06-22</span>
                     </div>
                     <div class="user-info-list">
                         上次登录地点：
-                        <span>东莞</span>
+                        <span>成都</span>
                     </div>
                 </el-card>
                 <el-card shadow="hover" style="height:252px;">
                     <template #header>
                         <div class="clearfix">
-                            <span>语言详情</span>
+                            <span>本辖区成员组成情况详情</span>
                         </div>
                     </template>
-                    Vue
-                    <el-progress :percentage="71.3" color="#42b983"></el-progress>JavaScript
-                    <el-progress :percentage="24.1" color="#f1e05a"></el-progress>CSS
-                    <el-progress :percentage="13.7"></el-progress>HTML
-                    <el-progress :percentage="5.9" color="#f56c6c"></el-progress>
+                    村民
+                    <el-progress :percentage="71.3" color="#42b983"></el-progress>
+					干部
+                    <el-progress :percentage="24.1" color="#f1e05a"></el-progress>
+					管理员
+                    <el-progress :percentage="4.6" color="#f56c6c"></el-progress>
                 </el-card>
             </el-col>
             <el-col :span="16">
@@ -39,7 +40,7 @@
                             <div class="grid-content grid-con-1">
                                 <i class="el-icon-user-solid grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">1234</div>
+                                    <div class="grid-num">6734</div>
                                     <div>用户访问量</div>
                                 </div>
                             </div>
@@ -50,7 +51,7 @@
                             <div class="grid-content grid-con-2">
                                 <i class="el-icon-message-solid grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
+                                    <div class="grid-num">2</div>
                                     <div>系统消息</div>
                                 </div>
                             </div>
@@ -59,10 +60,10 @@
                     <el-col :span="8">
                         <el-card shadow="hover" :body-style="{ padding: '0px' }">
                             <div class="grid-content grid-con-3">
-                                <i class="el-icon-s-goods grid-con-icon"></i>
+                                <i class="el-icon-location-outline grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div class="grid-num">12</div>
+                                    <div>辖区乡村数</div>
                                 </div>
                             </div>
                         </el-card>
@@ -157,69 +158,59 @@ export default {
         const options = {
             type: "bar",
             title: {
-                text: "最近一周各品类销售图",
+                text: "最近一周业务使用量",
             },
             xRorate: 25,
             labels: ["周一", "周二", "周三", "周四", "周五"],
             datasets: [
                 {
-                    label: "家电",
+                    label: "村民",
+                    fillColor: "rgba(241, 49, 74, 0.5)",
                     data: [234, 278, 270, 190, 230],
                 },
                 {
-                    label: "百货",
-                    data: [164, 178, 190, 135, 160],
+                    label: "干部",
+                    data: [164-50, 178-50, 190-50, 135-50, 160-50],
                 },
                 {
-                    label: "食品",
-                    data: [144, 198, 150, 235, 120],
+                    label: "管理员",
+                    data: [144-110, 198-110, 150-110, 235-110, 120-110],
                 },
             ],
         };
         const options2 = {
             type: "line",
             title: {
-                text: "最近几个月各品类销售趋势图",
+                text: "最近几个月各业务使用趋势图",
             },
             labels: ["6月", "7月", "8月", "9月", "10月"],
             datasets: [
                 {
-                    label: "家电",
+                    label: "村民",
+                    fillColor: "rgba(241, 49, 74, 0.5)",
                     data: [234, 278, 270, 190, 230],
                 },
                 {
-                    label: "百货",
-                    data: [164, 178, 150, 135, 160],
+                    label: "干部",
+                    data: [164-50, 178-50, 190-50, 135-50, 160-50],
                 },
                 {
-                    label: "食品",
-                    data: [74, 118, 200, 235, 90],
+                    label: "管理员",
+                    data: [144-110, 198-110, 150-110, 235-110, 120-110],
                 },
             ],
         };
         const todoList = reactive([
             {
-                title: "今天要修复100个bug",
+                title: "干部资格审批",
                 status: false,
             },
             {
-                title: "今天要修复100个bug",
+                title: "发布公告",
                 status: false,
             },
             {
-                title: "今天要写100行代码加几个bug吧",
-                status: false,
-            },
-            {
-                title: "今天要修复100个bug",
-                status: false,
-            },
-            {
-                title: "今天要修复100个bug",
-                status: true,
-            },
-            {
-                title: "今天要写100行代码加几个bug吧",
+                title: "阅读通知",
                 status: true,
             },
         ]);

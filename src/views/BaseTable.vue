@@ -10,8 +10,8 @@
         <div class="container">
             <div class="handle-box">
                 <el-select v-model="query.address" placeholder="地址" class="handle-select mr10">
-                    <el-option key="1" label="广东省" value="广东省"></el-option>
-                    <el-option key="2" label="湖南省" value="湖南省"></el-option>
+                    <el-option key="1" label="四川省" value="四川省"></el-option>
+                    <el-option key="2" label="重庆市" value="重庆市"></el-option>
                 </el-select>
                 <el-input v-model="query.name" placeholder="用户名" class="handle-input mr10"></el-input>
                 <el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
@@ -19,8 +19,8 @@
             <el-table :data="tableData" border class="table" ref="multipleTable" header-cell-class-name="table-header">
                 <el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
                 <el-table-column prop="name" label="用户名"></el-table-column>
-                <el-table-column label="账户余额">
-                    <template #default="scope">￥{{ scope.row.money }}</template>
+                <el-table-column label="申请创建乡村信息">
+                    <template #default="scope">{{ scope.row.country }}</template>
                 </el-table-column>
                 <el-table-column label="头像(查看大图)" align="center">
                     <template #default="scope">
@@ -29,14 +29,16 @@
                     </template>
                 </el-table-column>
                 <el-table-column prop="address" label="地址"></el-table-column>
-                <el-table-column label="状态" align="center">
+                <el-table-column label="当前审核状态" align="center">
                     <template #default="scope">
                         <el-tag :type="
-                                scope.row.state === '成功'
-                                    ? 'success'
-                                    : scope.row.state === '失败'
+                                scope.row.state === '待审核'
+                                    ? 'warning'
+                                    : scope.row.state === '未通过审核'
                                     ? 'danger'
-                                    : ''
+									: scope.row.state === '审核通过'
+                                    ? 'success'
+									: ''
                             ">{{ scope.row.state }}</el-tag>
                     </template>
                 </el-table-column>
@@ -44,10 +46,10 @@
                 <el-table-column prop="date" label="注册时间"></el-table-column>
                 <el-table-column label="操作" width="180" align="center">
                     <template #default="scope">
-                        <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑
+                        <el-button type="text" icon="el-icon-circle-plus" @click="handleEdit(scope.$index, scope.row)">查看材料
                         </el-button>
-                        <el-button type="text" icon="el-icon-delete" class="red"
-                            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                        <el-button type="text" icon="el-icon-error" class="red"
+                            @click="handleDelete(scope.$index, scope.row)">拒绝</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -58,19 +60,26 @@
         </div>
 
         <!-- 编辑弹出框 -->
-        <el-dialog title="编辑" v-model="editVisible" width="30%">
+        <el-dialog title="查看详细信息" v-model="editVisible" width="30%">
             <el-form label-width="70px">
                 <el-form-item label="用户名">
-                    <el-input v-model="form.name"></el-input>
+                    <el-input v-model="form.name" :disabled="true"></el-input>
                 </el-form-item>
                 <el-form-item label="地址">
-                    <el-input v-model="form.address"></el-input>
+                    <el-input v-model="form.address" :disabled="true"></el-input>
                 </el-form-item>
+				<el-form-item label="证明文件">
+					<el-upload
+					  action="https://jsonplaceholder.typicode.com/posts/"
+					  list-type="picture-card">
+					  <i class="el-icon-download"></i>
+					</el-upload>
+				</el-form-item>
             </el-form>
             <template #footer>
                 <span class="dialog-footer">
                     <el-button @click="editVisible = false">取 消</el-button>
-                    <el-button type="primary" @click="saveEdit">确 定</el-button>
+                    <el-button type="primary" @click="saveEdit">通过审核</el-button>
                 </span>
             </template>
         </el-dialog>
@@ -116,12 +125,13 @@ export default {
         // 删除操作
         const handleDelete = (index) => {
             // 二次确认删除
-            ElMessageBox.confirm("确定要删除吗？", "提示", {
+            ElMessageBox.confirm("确定要拒绝该请求吗？", "提示", {
                 type: "warning",
             })
                 .then(() => {
-                    ElMessage.success("删除成功");
-                    tableData.value.splice(index, 1);
+                    ElMessage.success("已拒绝");
+					tableData.value[index].state = "未通过审核";
+                    // tableData.value.splice(index, 1);
                 })
                 .catch(() => {});
         };
@@ -141,8 +151,9 @@ export default {
             editVisible.value = true;
         };
         const saveEdit = () => {
+			tableData.value[idx].state = "审核通过";
             editVisible.value = false;
-            ElMessage.success(`修改第 ${idx + 1} 行成功`);
+            ElMessage.success(`审核通过`);
             Object.keys(form).forEach((item) => {
                 tableData.value[idx][item] = form[item];
             });

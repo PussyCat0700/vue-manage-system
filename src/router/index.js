@@ -21,7 +21,7 @@ const routes = [
                 path: "/table",
                 name: "basetable",
                 meta: {
-                    title: '表格'
+                    title: '干部资格审批'
                 },
                 component: () => import ( /* webpackChunkName: "table" */ "../views/BaseTable.vue")
             }, {
@@ -42,7 +42,7 @@ const routes = [
                 path: "/tabs",
                 name: "tabs",
                 meta: {
-                    title: 'tab标签'
+                    title: '通知'
                 },
                 component: () => import ( /* webpackChunkName: "tabs" */ "../views/Tabs.vue")
             }, {
@@ -71,7 +71,7 @@ const routes = [
                 path: "/upload",
                 name: "upload",
                 meta: {
-                    title: '上传插件'
+                    title: '上传资格文件'
                 },
                 component: () => import ( /* webpackChunkName: "upload" */ "../views/Upload.vue")
             }, {
@@ -106,7 +106,7 @@ const routes = [
                 path: '/editor',
                 name: 'editor',
                 meta: {
-                    title: '富文本编辑器'
+                    title: '编辑公告'
                 },
                 component: () => import (/* webpackChunkName: "editor" */ '../views/Editor.vue')
             }
