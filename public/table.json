@@ -1,39 +1,39 @@
 {
     "list": [{
             "id": 1,
-            "name": "张三",
+            "name": "张鸿斌",
             "country": "四川省成都市双流区新乡",
             "address": "四川省成都市双流区",
             "state": "待审核",
             "date": "2022-06-20",
-            "thumb": "https://lin-xin.gitee.io/images/post/wms.png"
+            "thumb": "https://www.ylxteach.net:8999/images/00b1dcb3b56345d296d3c7bf2d535f30.png"
         },
         {
             "id": 2,
-            "name": "李四",
+            "name": "刘雨果",
             "country": "四川省成都市双流区新乡",
             "address": "四川省成都市天府新区",
             "state": "待审核",
             "date": "2022-06-20",
-            "thumb": "https://lin-xin.gitee.io/images/post/node3.png"
+            "thumb": "https://www.ylxteach.net:8999/images/2e121522ea8b440b989626548630fa15.png"
         },
         {
             "id": 3,
-            "name": "王五",
+            "name": "陈泽西",
             "country": "四川省成都市犀浦新乡",
             "address": "四川省成都市犀浦新城",
             "state": "待审核",
             "date": "2022-06-20",
-            "thumb": "https://lin-xin.gitee.io/images/post/parcel.png"
+            "thumb": "https://www.ylxteach.net:8999/images/ebd2be1fa47b4f4ea205a9131e616d59.png"
         },
         {
             "id": 4,
-            "name": "赵六",
+            "name": "张三",
             "country": "四川省成都市郫县新乡",
             "address": "四川省成都市郫县",
             "state": "未通过审核",
             "date": "2022-06-20",
-            "thumb": "https://lin-xin.gitee.io/images/post/notice.png"
+            "thumb": "https://www.ylxteach.net:8999/images/d7e67f40e8b14d67b4e167492f7e6854.png"
         }
     ],
     "pageTotal": 4
